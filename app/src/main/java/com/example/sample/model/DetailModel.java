@@ -1,17 +1,17 @@
 package com.example.sample.model;
 
 public class DetailModel {
-    private Photo photo;
+    private Dis photo;
 
-    public Photo getPhoto() {
+    public Dis getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Photo photo) {
+    public void setPhoto(Dis photo) {
         this.photo = photo;
     }
 
-    public DetailModel(Photo photo) {
+    public DetailModel(Dis photo) {
         this.photo = photo;
     }
 }

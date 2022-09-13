@@ -57,10 +57,10 @@ public void setDetail(String id,String secret,int pos){
     public LiveData<List<Photo>> getLiveData() {
         return liveData;
     }
-//    public LiveData<String> getUserLivData(){return user;}
-//    public LiveData<String> getLocationLivData(){return location;}
+    public LiveData<String> getUserLivData(){return user;}
+    public LiveData<String> getLocationLivData(){return location;}
     public LiveData<String> getViewsLivData(){return views;}
-//    public LiveData<String> getDescLivData(){return desc;}
-//    public LiveData<String> getTitleLivData(){return title;}
+    public LiveData<String> getDescLivData(){return desc;}
+    public LiveData<String> getTitleLivData(){return title;}
 
 }

@@ -1,8 +1,12 @@
 package com.example.sample.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class Photos {
+public class Photos implements Serializable {
+    @SerializedName("photo")
    private List<Photo> photo;
 
 

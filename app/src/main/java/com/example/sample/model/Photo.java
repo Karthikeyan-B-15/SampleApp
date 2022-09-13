@@ -7,6 +7,8 @@ import android.widget.ArrayAdapter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 //public class Photo {
 //    private String id;
 //    private String secret;
@@ -44,7 +46,7 @@ import com.google.gson.annotations.SerializedName;
 //    }
 
 
-public class Photo {
+public class Photo implements Serializable {
 
 @SerializedName("id")
 @Expose
@@ -68,12 +70,12 @@ private String views;
         this.views = views;
     }
 
-    @SerializedName("owner")
-@Expose
-private Owner owner;
-@SerializedName("title")
-@Expose
-private Title title;
+//    @SerializedName("owner")
+//@Expose
+//private Owner owner;
+//@SerializedName("title")
+//@Expose
+//private Title title;
 @SerializedName("stat")
 @Expose
 private String stat;
@@ -109,22 +111,22 @@ return farm;
 public void setFarm(Integer farm) {
 this.farm = farm;
 }
-
-public Owner getOwner() {
-return owner;
-}
-
-public void setOwner(Owner owner) {
-this.owner = owner;
-}
-
-public Title getTitle() {
-return title;
-}
-
-public void setTitle(Title title) {
-this.title = title;
-}
+//
+//public Owner getOwner() {
+//return owner;
+//}
+//
+//public void setOwner(Owner owner) {
+//this.owner = owner;
+//}
+//
+//public Title getTitle() {
+//return title;
+//}
+//
+//public void setTitle(Title title) {
+//this.title = title;
+//}
 
 public String getStat() {
 return stat;

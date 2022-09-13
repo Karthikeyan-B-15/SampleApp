@@ -16,6 +16,6 @@ public interface ApiRequest {
     @GET("?method=flickr.photos.search&api_key="+API_KEY+"&format=json&nojsoncallback=1&")
     Call<Data> getRequest(@Query("text") String query);
     @GET("?method=flickr.photos.getInfo&api_key="+API_KEY+"&format=json&nojsoncallback=1&")
-    Call<Owner> getDetailRequest(@Query("photo_id") String id, @Query("secret") String secret);
+    Call<DetailModel> getDetailRequest(@Query("photo_id") String id, @Query("secret") String secret);
 
 }

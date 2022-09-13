@@ -92,13 +92,13 @@ public void createDetailApi(String id,String secret,int pos,MutableLiveData<Stri
                                 MutableLiveData<String> views){
         apiRequest.getDetailRequest(id, secret).enqueue(new Callback<DetailModel>() {
             @Override
-            public void onResponse(Call<Owner> call, Response<Owner> response) {
+            public void onResponse(Call<DetailModel> call, Response<DetailModel> response) {
                 if(response.body()!=null){
-                    Log.d("id",response.body().getPhoto().getId());
-//                    user.postValue(response.body().getPhoto().getOwner().getUsername());
-//                    location.postValue(response.body().getPhoto().getOwner().getUsername());
-//                    title.postValue(response.body().getPhoto().getTitle().get_content());
-//                    desc.postValue(response.body().getPhoto().getDescription().get_content());
+                    Log.d("id",response.body().getPhoto().getOwner().getUsername());
+                    user.postValue(response.body().getPhoto().getOwner().getUsername());
+                    location.postValue(response.body().getPhoto().getOwner().getLocation());
+                    title.postValue(response.body().getPhoto().getTitle().get_content());
+                    desc.postValue(response.body().getPhoto().getDescription().get_content());
                     views.postValue(response.body().getPhoto().getViews());
 
                 }
@@ -108,7 +108,7 @@ public void createDetailApi(String id,String secret,int pos,MutableLiveData<Stri
             }
 
             @Override
-            public void onFailure(Call<Owner> call, Throwable t) {
+            public void onFailure(Call<DetailModel> call, Throwable t) {
 
             }
         });

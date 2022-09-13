@@ -26,7 +26,7 @@ public class Details extends AppCompatActivity {
     DisplayAdapter adapter;
     List<Photo> list;
     Photo photo;
-    TextView user;
+    TextView user,location,views,title,desc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +35,10 @@ public class Details extends AppCompatActivity {
 
         imageView=(ImageView) findViewById(R.id.detailsimg);
         user=(TextView)findViewById(R.id.user);
+        views=(TextView)findViewById(R.id.views);
+        location=(TextView)findViewById(R.id.location);
+        title=(TextView)findViewById(R.id.title1);
+        desc=(TextView)findViewById(R.id.desc);
         Glide.with(imageView.getContext())
                 .load(intent.getStringExtra("image"))
                 .into(imageView);
@@ -43,10 +47,34 @@ public class Details extends AppCompatActivity {
     public void getDetailViewModwel(int pos){
         SampleViewModel sampleViewModel = new ViewModelProvider(this).get(SampleViewModel.class);
         sampleViewModel.setDetail(intent.getStringExtra("id"),intent.getStringExtra("secret"),pos);
-        sampleViewModel.getViewsLivData().observe(this, new Observer<String>() {
+        sampleViewModel.getUserLivData().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 user.setText(s);
+            }
+        });
+        sampleViewModel.getViewsLivData().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                views.setText(s);
+            }
+        });
+        sampleViewModel.getTitleLivData().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                title.setText(s);
+            }
+        });
+        sampleViewModel.getLocationLivData().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                location.setText(s);
+            }
+        });
+        sampleViewModel.getDescLivData().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                desc.setText(s);
             }
         });
     }

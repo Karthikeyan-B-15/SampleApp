@@ -15,16 +15,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.sample.R;
 import com.example.sample.adapter.DisplayAdapter;
 import com.example.sample.databinding.ActivityDisplayBinding;
-import com.example.sample.model.Data;
-import com.example.sample.model.DataList;
 import com.example.sample.model.Photo;
-import com.example.sample.model.Photos;
-import com.example.sample.repository.SampleRepo;
 import com.example.sample.viewmodel.SampleViewModel;
 
 import java.util.List;
@@ -47,7 +42,7 @@ public class Display extends AppCompatActivity {
         intent = getIntent();
 
         createRecycle();
-        getViewModel();
+        getViewModel(intent.getStringExtra("keyword"));
 
     }
 
@@ -72,10 +67,11 @@ public void setOnClick(){
             }
         };
 }
-    public void getViewModel() {
+    public void getViewModel(String val) {
+
         SampleViewModel sampleViewModel = new ViewModelProvider(this).get(SampleViewModel.class);
-        Log.d("keyword", intent.getStringExtra("keyword"));
-        sampleViewModel.insert(intent.getStringExtra("keyword"));
+        Log.d("keyword", val);
+        sampleViewModel.insert(val);
         sampleViewModel.getLiveData().observe(this, new Observer<List<Photo>>() {
             @Override
             public void onChanged(List<Photo> photos) {
