@@ -20,18 +20,21 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
+    String keyword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        keyword = binding.key.getText().toString();
+
 
         binding.get.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                String keyword = binding.key.getText().toString();
                 Log.d("query1", binding.key.getText().toString());
                 Intent intent = new Intent(MainActivity.this, Display.class);
                 intent.putExtra("keyword",keyword);
@@ -40,4 +43,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 }
